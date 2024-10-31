@@ -15,7 +15,7 @@ public class Main {
         System.out.println("Task_7:");
         System.out.println(task7(-1));
         System.out.println("Task_8:");
-        task8("Привет", 3);
+        task8("РџСЂРёРІРµС‚", 3);
         System.out.println("Task_9:");
         System.out.println(task9(2024));
         System.out.println("Task_10:");
@@ -41,22 +41,22 @@ public class Main {
         int b = 2;
         int c = a + b;
         if (c >= 0) {
-            System.out.println("Сумма положительная");
+            System.out.println("РЎСѓРјРјР° РїРѕР»РѕР¶РёС‚РµР»СЊРЅР°СЏ");
         } else {
-            System.out.println("Сумма отрицательная");
+            System.out.println("РЎСѓРјРјР° РѕС‚СЂРёС†Р°С‚РµР»СЊРЅР°СЏ");
         }
     }
 
     public static void printColor() {
         int value = 100;
         if (value <= 0) {
-            System.out.println("Красный");
+            System.out.println("РљСЂР°СЃРЅС‹Р№");
         }
         if (value > 0 && value <= 100) {
-            System.out.println("Желтый");
+            System.out.println("Р–РµР»С‚С‹Р№");
         }
         if (value > 100) {
-            System.out.println("Зеленый");
+            System.out.println("Р—РµР»РµРЅС‹Р№");
         }
     }
 
@@ -75,7 +75,7 @@ public class Main {
     }
 
     public static void task6(int a) {
-        System.out.println(a >= 0 ? "Позитивное" : "Негативное");
+        System.out.println(a >= 0 ? "РџРѕР»РѕР¶РёС‚РµР»СЊРЅРѕРµ" : "РћС‚СЂРёС†Р°С‚РµР»СЊРЅРѕРµ");
     }
 
     public static boolean task7(int a) {
