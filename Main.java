@@ -11,7 +11,7 @@ public class Main {
         persArray[3] = new Person("Alexeev Alex", "Designer", "alexeev@mailbox.com", "895312312", 35000, 32);
         persArray[4] = new Person("Nikolaev Nikolai", "Analyst", "nikolaev@mailbox.com", "896312312", 45000, 29);
 
-        System.out.println("Вывод массива:");
+        System.out.println("Вывод массива: ");
         for (int i = 0; i < persArray.length; i++) {
             System.out.println(persArray[i].toString());
         }
