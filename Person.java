@@ -18,12 +18,12 @@ public class Person {
     @Override
     public String toString() {
         return "Person{" +
-                "ФИО = '" + fullName + '\'' +
-                ", должность = '" + position + '\'' +
+                "Р¤РРћ = '" + fullName + '\'' +
+                ", РґРѕР»Р¶РЅРѕСЃС‚СЊ = '" + position + '\'' +
                 ", email = '" + email + '\'' +
-                ", телефон = '" + phone + '\'' +
-                ", зарплата = " + salary +
-                ", возраст = " + age +
+                ", С‚РµР»РµС„РѕРЅ = '" + phone + '\'' +
+                ", Р·Р°СЂРїР»Р°С‚Р° = " + salary +
+                ", РІРѕР·СЂР°СЃС‚ = " + age +
                 '}';
     }
 }

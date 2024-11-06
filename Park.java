@@ -13,9 +13,9 @@ public class Park {
         @Override
         public String toString() {
             return "Attraction{" +
-                    " Название = '" + name + '\'' +
-                    ", Часы работы = '" + workingHours + '\'' +
-                    ", Стоимость =" + price +
+                    " РќР°Р·РІР°РЅРёРµ = '" + name + '\'' +
+                    ", Р§Р°СЃС‹ СЂР°Р±РѕС‚С‹ = '" + workingHours + '\'' +
+                    ", РЎС‚РѕРёРјРѕСЃС‚СЊ =" + price +
                     '}';
         }
     }
