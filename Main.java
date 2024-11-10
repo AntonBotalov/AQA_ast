@@ -16,7 +16,9 @@ public class Main {
             System.out.println(persArray[i].toString());
         }
 
-        Park.Attraction hauntedHouse = new Park().new Attraction("Haunted House", "12:00 - 22:00", 1000);
-        System.out.println(hauntedHouse.toString());
+        Park park = new Park();
+        park.addAttraction("Roller Coaster", "10:00 - 18:00", 15);
+        park.addAttraction("Ferris Wheel", "09:00 - 20:00", 10);
+        park.showAttractions();
     }
 }
