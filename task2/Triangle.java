@@ -1,6 +1,6 @@
 package task2;
 
-public class Triangle implements Shape{
+public class Triangle implements Shape {
     private double sideA;
     private double sideB;
     private double sideC;
@@ -27,8 +27,8 @@ public class Triangle implements Shape{
 
     @Override
     public double getArea() {
-        double p = getPerimeter()/2;
-        return Math.sqrt(p*(p-sideA)*(p-sideB)*(p-sideC));
+        double p = getPerimeter() / 2;
+        return Math.sqrt(p * (p - sideA) * (p - sideB) * (p - sideC));
     }
 
     @Override
