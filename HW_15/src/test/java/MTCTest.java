@@ -13,15 +13,13 @@ import java.util.List;
 
 public class MTCTest {
     private static WebDriver driver;
-    @BeforeAll
-    public static void setUp(){
+
+    @BeforeEach
+    public void setUp(){
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-    }
 
-    @BeforeEach
-    public void openPage(){
         driver.get("https://www.mts.by/");
 
         // Закрываем баннер с куки
@@ -30,6 +28,13 @@ public class MTCTest {
             WebElement cookieAcceptButton = wait.until(ExpectedConditions.elementToBeClickable(By.id("cookie-agree")));
             cookieAcceptButton.click();
         } catch (Exception ignored) {}
+    }
+
+    @AfterEach
+    public void tearDown() {
+        if (driver != null) {
+            driver.quit();
+        }
     }
 
 
@@ -51,6 +56,7 @@ public class MTCTest {
         String[] expectedAlts = {"Visa", "Verified By Visa", "MasterCard", "MasterCard Secure Code", "Белкарт"};
         for (int i = 0; i < logos.size(); i++) {
             String actualAlt = logos.get(i).getAttribute("alt").trim();
+            Assertions.assertTrue(logos.get(i).isDisplayed(), "Логотип не отображается: " + logos.get(i).getAttribute("alt"));
             Assertions.assertEquals(expectedAlts[i], actualAlt, "Атрибут alt у логотипа не совпадает.");
         }
     }
@@ -62,6 +68,12 @@ public class MTCTest {
         WebElement link = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@class='pay__wrapper']/a")));
         Assertions.assertTrue(link.isDisplayed(), "Ссылка 'Подробнее о сервисе' не отображается.");
         Assertions.assertTrue(link.isEnabled(), "Ссылка 'Подробнее о сервисе' не кликабельна.");
+
+        link.click();
+
+        WebElement newPage = driver.findElement(By.xpath("//*[@class='container-fluid']/h3"));
+        Assertions.assertTrue(newPage.getText().contains("Оплата банковской картой"), "Целевая страница не содержит ожидаемый контент.");
+
     }
 
     @Test
@@ -75,13 +87,13 @@ public class MTCTest {
 
         WebElement continueButton = driver.findElement(By.cssSelector("form#pay-connection button[type='submit']"));
         continueButton.click();
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(40));
+        WebElement modalWindow = wait.until(ExpectedConditions.presenceOfElementLocated(
+                By.xpath("//*[@class='app-wrapper__content']/app-header")
+        ));
+
+        Assertions.assertTrue(modalWindow.isDisplayed(), "Модальное окно не отображается после нажатия кнопки.");
     }
 
-
-    @AfterAll
-    public static void tearDown() {
-        if (driver != null) {
-            driver.quit();
-        }
-    }
 }
