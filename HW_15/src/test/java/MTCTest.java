@@ -88,12 +88,16 @@ public class MTCTest {
         WebElement continueButton = driver.findElement(By.cssSelector("form#pay-connection button[type='submit']"));
         continueButton.click();
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(40));
-        WebElement modalWindow = wait.until(ExpectedConditions.presenceOfElementLocated(
-                By.xpath("//*[@class='app-wrapper__content']/app-header")
-        ));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        WebElement iframe = wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("iframe.bepaid-iframe")));
+        driver.switchTo().frame(iframe);
 
-        Assertions.assertTrue(modalWindow.isDisplayed(), "Модальное окно не отображается после нажатия кнопки.");
+        // Ожидание и проверка модального окна
+        WebElement modalContent = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.cssSelector(".app-wrapper__content")));
+        Assertions.assertTrue(modalContent.isDisplayed(), "Модальное окно внутри фрейма не отображается или пустое.");
+
+        // Возврат в основной контент
+        driver.switchTo().defaultContent();
     }
-
 }
