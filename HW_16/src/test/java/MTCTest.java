@@ -142,11 +142,11 @@ public class MTCTest {
         // Проверка суммы
         Assertions.assertEquals("200.00 BYN", framePage.getPaymentAmountText(), "Сумма оплаты не совпадает.");
 
-        // Проверка placeholder'ов внутри фрейма
-        Assertions.assertEquals("Номер карты", framePage.getCardNumberPlaceholder(), "Placeholder для номера карты не совпадает.");
-        Assertions.assertEquals("Срок действия", framePage.getCardExpirationPlaceholder(), "Placeholder для срока действия не совпадает.");
-        Assertions.assertEquals("CVC", framePage.getCardCvcPlaceholder(), "Placeholder для CVC не совпадает.");
-        Assertions.assertEquals("Имя держателя (как на карте)", framePage.getCardHolderPlaceholder(), "Placeholder для имени держателя не совпадает.");
+        // Проверка lebel'ов внутри фрейма
+        Assertions.assertEquals("Номер карты", framePage.getCardNumberPlaceholder(), "Текст для номера карты не совпадает.");
+        Assertions.assertEquals("Срок действия", framePage.getCardExpirationPlaceholder(), "Текст для срока действия не совпадает.");
+        Assertions.assertEquals("CVC", framePage.getCardCvcPlaceholder(), "Текст для CVC не совпадает.");
+        Assertions.assertEquals("Имя держателя (как на карте)", framePage.getCardHolderPlaceholder(), "Текст для имени держателя не совпадает.");
 
         // Проверка наличия иконок платёжных систем, преверяю, что отображается 4 иконки
         Assertions.assertTrue(framePage.arePaymentIconsDisplayed(), "Иконки платёжных систем не отображаются.");
